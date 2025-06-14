@@ -1,3 +1,4 @@
+
 "use client";
 import { BsGithub, BsLinkedin, BsTwitterX } from "react-icons/bs";
 import { RiNextjsFill } from "react-icons/ri";
@@ -51,30 +52,30 @@ export default function Home() {
     {
       name: "Github",
       link: "https://github.com/Kuldip-Sirpali",
-      icon: <BsGithub />,
+      icon: BsGithub,
     },
     {
       name: "X",
       link: "https://x.com/kuldip_sirpali",
-      icon: <BsTwitterX />,
+      icon: BsTwitterX,
     },
     {
       name: "Linkedin",
       link: "https://np.linkedin.com/in/kuldip-sirpali-044a422b4",
-      icon: <BsLinkedin />,
+      icon: BsLinkedin,
     },
   ];
 
   const toolsAndTechStacks = [
-    { name: "React", icon: <SiReact /> },
-    { name: "Next.js", icon: <RiNextjsFill /> },
-    { name: "React Router", icon: <SiReactrouter /> },
-    { name: "JavaScript", icon: <SiJavascript /> },
-    { name: "TypeScript", icon: <SiTypescript /> },
-    { name: "Node.js", icon: <SiNodedotjs /> },
-    { name: "Git", icon: <SiGit /> },
-    { name: "Redis", icon: <DiRedis /> },
-    { name: "Tailwind CSS", icon: <SiTailwindcss /> },
+    { name: "React", icon: SiReact },
+    { name: "Next.js", icon: RiNextjsFill },
+    { name: "React Router", icon: SiReactrouter },
+    { name: "JavaScript", icon: SiJavascript },
+    { name: "TypeScript", icon: SiTypescript },
+    { name: "Node.js", icon: SiNodedotjs },
+    { name: "Git", icon: SiGit },
+    { name: "Redis", icon: DiRedis },
+    { name: "Tailwind CSS", icon: SiTailwindcss },
   ];
 
   return (
@@ -97,17 +98,17 @@ export default function Home() {
           user-centric solutions.
         </p>
         <div className="flex gap-4 text-xl text-gray-300">
-          {socialMedias &&
-            socialMedias?.map((item, index) => (
-              <a
-                key={index}
-                href={item?.link}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {item?.icon}
-              </a>
-            ))}
+          {socialMedias.map(({ icon: Icon, link }, index) => (
+            <a
+              key={index}
+              href={link}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={socialMedias[index].name}
+            >
+              <Icon />
+            </a>
+          ))}
         </div>
       </motion.section>
 
@@ -132,6 +133,7 @@ export default function Home() {
                   href={project.websiteLink}
                   className="flex items-center gap-1 px-2 py-0.5 border rounded text-gray-700 hover:bg-gray-100"
                   target="_blank"
+                  rel="noopener noreferrer"
                 >
                   View <CiShare1 />
                 </a>
@@ -139,6 +141,7 @@ export default function Home() {
                   href={project.githubLink}
                   className="flex items-center gap-1 px-2 py-0.5 border rounded text-gray-700 hover:bg-gray-100"
                   target="_blank"
+                  rel="noopener noreferrer"
                 >
                   GitHub <CiShare1 />
                 </a>
@@ -147,9 +150,7 @@ export default function Home() {
                 {project.title}
               </h3>
               <p className="text-gray-600 text-xs">{project.description}</p>
-              <p className="text-[11px] text-gray-700 mt-2 italic">
-                {project.stack}
-              </p>
+              <p className="text-[11px] text-gray-700 mt-2 italic">{project.stack}</p>
             </motion.div>
           ))}
         </div>
@@ -163,13 +164,12 @@ export default function Home() {
       >
         <h3 className="text-xl font-medium">Tools & Stack</h3>
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 text-xs text-gray-400">
-          {toolsAndTechStacks &&
-            toolsAndTechStacks?.map((item, index) => (
-              <div className="flex items-center gap-1" key={index}>
-                {item?.icon}
-                {item?.name}
-              </div>
-            ))}
+          {toolsAndTechStacks.map(({ icon: Icon, name }, index) => (
+            <div className="flex items-center gap-1" key={index}>
+              <Icon />
+              {name}
+            </div>
+          ))}
         </div>
       </motion.section>
     </motion.main>
