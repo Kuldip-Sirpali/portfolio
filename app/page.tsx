@@ -1,103 +1,177 @@
-import Image from "next/image";
+"use client";
+import { BsGithub, BsLinkedin, BsTwitterX } from "react-icons/bs";
+import { RiNextjsFill } from "react-icons/ri";
+import {
+  SiGit,
+  SiJavascript,
+  SiNodedotjs,
+  SiReact,
+  SiReactrouter,
+  SiTailwindcss,
+  SiTypescript,
+} from "react-icons/si";
+import { DiRedis } from "react-icons/di";
+import { CiShare1 } from "react-icons/ci";
+import { motion } from "framer-motion";
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const projects = [
+    {
+      title: "E-commerce Platform",
+      description:
+        "Full-featured e-commerce platform with product, cart, and payment support.",
+      githubLink: "https://github.com/Kuldip-Sirpali/Ecommerce_Mern",
+      websiteLink: "https://ecomartia.vercel.app/",
+      stack: "React / NodeJs / Tailwind / MongoDB / Google OAuth",
+    },
+    {
+      title: "Social Media Platform",
+      description: "A place to share thoughts and connect with others.",
+      githubLink: "https://github.com/Kuldip-Sirpali/Ecommerce_Mern",
+      websiteLink: "https://ecomartia.vercel.app/",
+      stack: "React / Tailwind / NodeJs / MongoDb",
+    },
+    {
+      title: "Audio Book Summary App",
+      description: "Get curated audio book summaries in one place.",
+      githubLink: "https://github.com/Kuldip-Sirpali/Ecommerce_Mern",
+      websiteLink: "https://ecomartia.vercel.app/",
+      stack: "React / Express / Redis",
+    },
+    {
+      title: "Learning Management System",
+      description: "Manage and sell your courses easily.",
+      githubLink: "https://github.com/Kuldip-Sirpali/Ecommerce_Mern",
+      websiteLink: "https://ecomartia.vercel.app/",
+      stack: "Next.js / Tailwind / Prisma / Clerk",
+    },
+  ];
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  const socialMedias = [
+    {
+      name: "Github",
+      link: "https://github.com/Kuldip-Sirpali",
+      icon: <BsGithub />,
+    },
+    {
+      name: "X",
+      link: "https://x.com/kuldip_sirpali",
+      icon: <BsTwitterX />,
+    },
+    {
+      name: "Linkedin",
+      link: "https://np.linkedin.com/in/kuldip-sirpali-044a422b4",
+      icon: <BsLinkedin />,
+    },
+  ];
+
+  const toolsAndTechStacks = [
+    { name: "React", icon: <SiReact /> },
+    { name: "Next.js", icon: <RiNextjsFill /> },
+    { name: "React Router", icon: <SiReactrouter /> },
+    { name: "JavaScript", icon: <SiJavascript /> },
+    { name: "TypeScript", icon: <SiTypescript /> },
+    { name: "Node.js", icon: <SiNodedotjs /> },
+    { name: "Git", icon: <SiGit /> },
+    { name: "Redis", icon: <DiRedis /> },
+    { name: "Tailwind CSS", icon: <SiTailwindcss /> },
+  ];
+
+  return (
+    <motion.main
+      className="px-4 py-8 max-w-3xl mx-auto space-y-12 text-sm"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+    >
+      <motion.section
+        className="space-y-3"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.2 }}
+      >
+        <h1 className="text-2xl font-semibold">Hey, I'm Kuldip Sirpali</h1>
+        <p className="text-gray-400 leading-relaxed">
+          Nepal-based full stack developer passionate about crafting exceptional
+          digital experiences. I transform complex challenges into elegant,
+          user-centric solutions.
+        </p>
+        <div className="flex gap-4 text-xl text-gray-300">
+          {socialMedias &&
+            socialMedias?.map((item, index) => (
+              <a
+                key={item?.name}
+                href={item?.link}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {item?.icon}
+              </a>
+            ))}
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </motion.section>
+
+      <motion.section
+        className="space-y-4"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.4 }}
+      >
+        <h2 className="text-xl font-medium">Projects</h2>
+        <div className="grid gap-4">
+          {projects.map((project, index) => (
+            <motion.div
+              key={index}
+              className="relative p-3 border rounded-md hover:shadow transition-all bg-white"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5 + index * 0.1 }}
+            >
+              <div className="absolute top-2 right-2 flex gap-2 text-xs">
+                <a
+                  href={project.websiteLink}
+                  className="flex items-center gap-1 px-2 py-0.5 border rounded text-gray-700 hover:bg-gray-100"
+                  target="_blank"
+                >
+                  View <CiShare1 />
+                </a>
+                <a
+                  href={project.githubLink}
+                  className="flex items-center gap-1 px-2 py-0.5 border rounded text-gray-700 hover:bg-gray-100"
+                  target="_blank"
+                >
+                  GitHub <CiShare1 />
+                </a>
+              </div>
+              <h3 className="font-semibold text-black text-sm pr-28">
+                {project.title}
+              </h3>
+              <p className="text-gray-600 text-xs">{project.description}</p>
+              <p className="text-[11px] text-gray-700 mt-2 italic">
+                {project.stack}
+              </p>
+            </motion.div>
+          ))}
+        </div>
+      </motion.section>
+
+      <motion.section
+        className="space-y-2"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.6 }}
+      >
+        <h3 className="text-xl font-medium">Tools & Stack</h3>
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 text-xs text-gray-400">
+          {toolsAndTechStacks &&
+            toolsAndTechStacks?.map((item, index) => (
+              <div className="flex items-center gap-1" key={item?.name}>
+                {item?.icon}
+                {item?.name}
+              </div>
+            ))}
+        </div>
+      </motion.section>
+    </motion.main>
   );
 }
