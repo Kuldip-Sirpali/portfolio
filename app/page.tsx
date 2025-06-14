@@ -91,7 +91,7 @@ export default function Home() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2 }}
       >
-        <h1 className="text-2xl font-semibold">Hey, I'm Kuldip Sirpali</h1>
+<h1 className="text-2xl font-semibold">Hey, I&apos;m Kuldip Sirpali</h1>
         <p className="text-gray-400 leading-relaxed">
           Nepal-based full stack developer passionate about crafting exceptional
           digital experiences. I transform complex challenges into elegant,
