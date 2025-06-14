@@ -100,7 +100,7 @@ export default function Home() {
           {socialMedias &&
             socialMedias?.map((item, index) => (
               <a
-                key={item?.name}
+                key={index}
                 href={item?.link}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -165,7 +165,7 @@ export default function Home() {
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 text-xs text-gray-400">
           {toolsAndTechStacks &&
             toolsAndTechStacks?.map((item, index) => (
-              <div className="flex items-center gap-1" key={item?.name}>
+              <div className="flex items-center gap-1" key={index}>
                 {item?.icon}
                 {item?.name}
               </div>
