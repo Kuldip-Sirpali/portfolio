@@ -1,5 +1,5 @@
-
 "use client";
+import { motion } from "framer-motion";
 import { BsGithub, BsLinkedin, BsTwitterX } from "react-icons/bs";
 import { RiNextjsFill } from "react-icons/ri";
 import {
@@ -7,13 +7,15 @@ import {
   SiJavascript,
   SiNodedotjs,
   SiReact,
-  SiReactrouter,
   SiTailwindcss,
   SiTypescript,
+  SiReactrouter,
+  SiClerk,
+  SiRedux,
+  SiExpress,
 } from "react-icons/si";
 import { DiRedis } from "react-icons/di";
 import { CiShare1 } from "react-icons/ci";
-import { motion } from "framer-motion";
 
 export default function Home() {
   const projects = [
@@ -69,6 +71,7 @@ export default function Home() {
   const toolsAndTechStacks = [
     { name: "React", icon: SiReact },
     { name: "Next.js", icon: RiNextjsFill },
+    { name: "Express", icon: SiExpress },
     { name: "React Router", icon: SiReactrouter },
     { name: "JavaScript", icon: SiJavascript },
     { name: "TypeScript", icon: SiTypescript },
@@ -76,102 +79,135 @@ export default function Home() {
     { name: "Git", icon: SiGit },
     { name: "Redis", icon: DiRedis },
     { name: "Tailwind CSS", icon: SiTailwindcss },
+    { name: "Clerk", icon: SiClerk },
+    { name: "Redux Toolkit", icon: SiRedux },
   ];
 
   return (
     <motion.main
-      className="px-4 py-8 max-w-3xl mx-auto space-y-12 text-sm"
+      className="relative min-h-screen bg-[#0f0f0f] text-white overflow-hidden py-12"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
     >
-      <motion.section
-        className="space-y-3"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.2 }}
-      >
-<h1 className="text-2xl font-semibold">Hey, I&apos;m Kuldip Sirpali</h1>
-        <p className="text-gray-400 leading-relaxed">
-          Nepal-based full stack developer passionate about crafting exceptional
-          digital experiences. I transform complex challenges into elegant,
-          user-centric solutions.
-        </p>
-        <div className="flex gap-4 text-xl text-gray-300">
-          {socialMedias.map(({ icon: Icon, link }, index) => (
+      <motion.div
+        className="absolute w-[400px] h-[400px] bg-purple-600 rounded-full blur-3xl opacity-30 top-[-100px] left-[-100px]"
+        animate={{ x: [0, 20, -20, 0], y: [0, -10, 10, 0] }}
+        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+      />
+      <motion.div
+        className="absolute w-[300px] h-[300px] bg-blue-500 rounded-full blur-2xl opacity-20 bottom-[50px] right-[50px]"
+        animate={{ x: [0, -15, 15, 0], y: [0, 10, -10, 0] }}
+        transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+      />
+
+      <div className="max-w-3xl mx-auto px-4 space-y-16 relative z-10">
+        <motion.section
+          className="space-y-3"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+        >
+          <h1 className="text-3xl font-bold drop-shadow-[0_0_5px_rgba(255,255,255,0.25)]">
+            Hey, I&apos;m Kuldip Sirpali
+          </h1>
+          <p className="text-gray-400 leading-relaxed">
+            Nepal-based full stack developer passionate about crafting
+            exceptional digital experiences. I transform complex challenges into
+            elegant, user-centric solutions.
+          </p>
+          <div className="flex gap-4 items-center text-xl text-gray-300">
+            {socialMedias.map(({ icon: Icon, link, name }, index) => (
+              <a
+                key={index}
+                href={link}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={name}
+                className="hover:text-white transition"
+              >
+                <Icon />
+              </a>
+            ))}
             <a
-              key={index}
-              href={link}
+              href={"/resume.pdf"}
+              className="flex items-center gap-1 px-3 py-1 border border-white/20 rounded-full text-xs text-gray-400 hover:bg-white/10 transition"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label={socialMedias[index].name}
+              aria-label="Resume"
             >
-              <Icon />
+              View Resume
             </a>
-          ))}
-        </div>
-      </motion.section>
+          </div>
+        </motion.section>
 
-      <motion.section
-        className="space-y-4"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.4 }}
-      >
-        <h2 className="text-xl font-medium">Projects</h2>
-        <div className="grid gap-4">
-          {projects.map((project, index) => (
-            <motion.div
-              key={index}
-              className="relative p-3 border rounded-md hover:shadow transition-all bg-white"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 + index * 0.1 }}
-            >
-              <div className="absolute top-2 right-2 flex gap-2 text-xs">
-                <a
-                  href={project.websiteLink}
-                  className="flex items-center gap-1 px-2 py-0.5 border rounded text-gray-700 hover:bg-gray-100"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  View <CiShare1 />
-                </a>
-                <a
-                  href={project.githubLink}
-                  className="flex items-center gap-1 px-2 py-0.5 border rounded text-gray-700 hover:bg-gray-100"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  GitHub <CiShare1 />
-                </a>
+        <motion.section
+          className="space-y-4"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4 }}
+        >
+          <h2 className="text-2xl font-semibold">Projects</h2>
+          <div className="grid gap-4">
+            {projects.map((project, index) => (
+              <motion.div
+                key={index}
+                className="relative p-4 border border-white/10 rounded-xl bg-white/5 backdrop-blur-md hover:scale-[1.01] hover:shadow-xl transition-all"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5 + index * 0.1 }}
+              >
+                <div className="absolute top-2 right-2 flex gap-2 text-xs text-gray-300">
+                  <a
+                    href={project.websiteLink}
+                    className="flex items-center gap-1 px-2 py-0.5 rounded hover:bg-white/10"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    View <CiShare1 />
+                  </a>
+                  {project?.githubLink && (
+                    <a
+                      href={project.githubLink}
+                      className="flex items-center gap-1 px-2 py-0.5 rounded hover:bg-white/10"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      GitHub <CiShare1 />
+                    </a>
+                  )}
+                </div>
+                <h3 className="font-semibold text-white text-sm pr-28">
+                  {project.title}
+                </h3>
+                <p className="text-gray-300 text-xs">{project.description}</p>
+                <p className="text-[11px] text-gray-400 mt-2 italic">
+                  {project.stack}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </motion.section>
+
+        <motion.section
+          className="space-y-2"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6 }}
+        >
+          <h3 className="text-2xl font-semibold">Tools & Stack</h3>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs text-white/80">
+            {toolsAndTechStacks.map(({ icon: Icon, name }, index) => (
+              <div
+                className="flex items-center gap-2 hover:text-white transition"
+                key={index}
+              >
+                <Icon /> {name}
               </div>
-              <h3 className="font-semibold text-black text-sm pr-28">
-                {project.title}
-              </h3>
-              <p className="text-gray-600 text-xs">{project.description}</p>
-              <p className="text-[11px] text-gray-700 mt-2 italic">{project.stack}</p>
-            </motion.div>
-          ))}
-        </div>
-      </motion.section>
-
-      <motion.section
-        className="space-y-2"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.6 }}
-      >
-        <h3 className="text-xl font-medium">Tools & Stack</h3>
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 text-xs text-gray-400">
-          {toolsAndTechStacks.map(({ icon: Icon, name }, index) => (
-            <div className="flex items-center gap-1" key={index}>
-              <Icon />
-              {name}
-            </div>
-          ))}
-        </div>
-      </motion.section>
+            ))}
+          </div>
+        </motion.section>
+      </div>
     </motion.main>
   );
 }
