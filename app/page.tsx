@@ -30,23 +30,37 @@ export default function Home() {
     {
       title: "Social Media Platform",
       description: "A place to share thoughts and connect with others.",
-      githubLink: "https://github.com/Kuldip-Sirpali/Ecommerce_Mern",
-      websiteLink: "https://ecomartia.vercel.app/",
+      githubLink: "https://github.com/Kuldip-Sirpali/",
+      websiteLink: "https://hubbell.vercel.app/",
       stack: "React / Tailwind / NodeJs / MongoDb",
     },
     {
       title: "Audio Book Summary App",
       description: "Get curated audio book summaries in one place.",
-      githubLink: "https://github.com/Kuldip-Sirpali/Ecommerce_Mern",
+      githubLink: "https://github.com/Kuldip-Sirpali/",
       websiteLink: "https://ecomartia.vercel.app/",
       stack: "React / Express / Redis",
     },
     {
       title: "Learning Management System",
       description: "Manage and sell your courses easily.",
-      githubLink: "https://github.com/Kuldip-Sirpali/Ecommerce_Mern",
+      githubLink: "https://github.com/Kuldip-Sirpali/",
       websiteLink: "https://ecomartia.vercel.app/",
       stack: "Next.js / Tailwind / Prisma / Clerk",
+    },
+       {
+      title: "Netflix Clone - A video streaming platform",
+      description: "A frontend ui clone of netflix using venilla javascript. ",
+      githubLink: "https://github.com/Kuldip-Sirpali/video-app-frontend",
+      websiteLink: "https://kuldip-sirpali.github.io/video-app-frontend",
+      stack: "HTML / CSS / JS",
+    },
+     {
+      title: "Linkedin UI ",
+      description: "Frontend of Linkedin with single page feature in javascript",
+      githubLink: "https://github.com/Kuldip-Sirpali/Linkedin-Clone",
+      websiteLink: "https://kuldip-sirpali.github.io/Linkedin-Clone/",
+      stack: "HTML / CSS / JS",
     },
   ];
 
@@ -88,7 +102,7 @@ export default function Home() {
       className="relative min-h-screen bg-[#0f0f0f] text-white overflow-hidden py-12"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 1 }}
     >
       <motion.div
         className="absolute w-[400px] h-[400px] bg-purple-600 rounded-full blur-3xl opacity-30 top-[-100px] left-[-100px]"
@@ -141,53 +155,60 @@ export default function Home() {
           </div>
         </motion.section>
 
-        <motion.section
-          className="space-y-4"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4 }}
-        >
-          <h2 className="text-2xl font-semibold">Projects</h2>
-          <div className="grid gap-4">
-            {projects.map((project, index) => (
-              <motion.div
-                key={index}
-                className="relative p-4 border border-white/10 rounded-xl bg-white/5 backdrop-blur-md hover:scale-[1.01] hover:shadow-xl transition-all"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5 + index * 0.1 }}
-              >
-                <div className="absolute top-2 right-2 flex gap-2 text-xs text-gray-300">
-                  <a
-                    href={project.websiteLink}
-                    className="flex items-center gap-1 px-2 py-0.5 rounded hover:bg-white/10"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    View <CiShare1 />
-                  </a>
-                  {project?.githubLink && (
-                    <a
-                      href={project.githubLink}
-                      className="flex items-center gap-1 px-2 py-0.5 rounded hover:bg-white/10"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      GitHub <CiShare1 />
-                    </a>
-                  )}
-                </div>
-                <h3 className="font-semibold text-white text-sm pr-28">
-                  {project.title}
-                </h3>
-                <p className="text-gray-300 text-xs">{project.description}</p>
-                <p className="text-[11px] text-gray-400 mt-2 italic">
-                  {project.stack}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-        </motion.section>
+       
+<motion.section
+  className="space-y-4"
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ delay: 0.4 }}
+>
+  <h2 className="text-2xl font-semibold text-white ">Projects</h2>
+
+  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+    {projects.map((project, index) => (
+      <motion.div
+        key={index}
+        className="flex flex-col justify-between p-4 border border-white/10 rounded-xl bg-white/2 backdrop-blur-md hover:scale-[1.01] hover:shadow-xl transition-all"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.5 + index * 0.1 }}
+      >
+        {/* Project title, description, and stack */}
+        <div>
+          <h3 className="font-semibold text-white text-sm">
+            {project.title}
+          </h3>
+          <p className="text-gray-300 text-xs mt-1">{project.description}</p>
+          <p className="text-[11px] text-gray-400 mt-2 italic">
+            {project.stack}
+          </p>
+        </div>
+
+        {/* Bottom aligned buttons */}
+        <div className="mt-4 flex gap-2 text-xs text-gray-300">
+          <a
+            href={project.websiteLink}
+            className="flex items-center gap-1 px-2 py-0.5 rounded hover:bg-white/10"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            View <CiShare1 />
+          </a>
+          {project?.githubLink && (
+            <a
+              href={project.githubLink}
+              className="flex items-center gap-1 px-2 py-0.5 rounded hover:bg-white/10"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              GitHub <CiShare1 />
+            </a>
+          )}
+        </div>
+      </motion.div>
+    ))}
+  </div>
+</motion.section>
 
         <motion.section
           className="space-y-2"
