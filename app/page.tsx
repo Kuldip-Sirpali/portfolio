@@ -38,8 +38,8 @@ export default function Home() {
       title: "Audio Book Summary App",
       description: "Get curated audio book summaries in one place.",
       githubLink: "https://github.com/Kuldip-Sirpali/",
-      websiteLink: "https://ecomartia.vercel.app/",
-      stack: "React / Express / Redis",
+      websiteLink: "https://dhawni.vercel.app/",
+      stack: "React / Express / MongoDB /Google OAuth",
     },
     {
       title: "Learning Management System",
