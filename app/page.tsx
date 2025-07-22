@@ -177,7 +177,7 @@ export default function Home() {
                 <Icon />
               </a>
             ))}
-            <a
+            {/* <a
               href={"/resume.pdf"}
               className="flex items-center gap-1 px-3 py-1 border border-white/20 rounded-full text-xs text-gray-400 hover:bg-white/10 transition"
               target="_blank"
@@ -185,7 +185,7 @@ export default function Home() {
               aria-label="Resume"
             >
               View Resume
-            </a>
+            </a> */}
           </div>
         </motion.section>
 
