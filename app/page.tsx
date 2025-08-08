@@ -279,6 +279,11 @@ export default function Home() {
           </div>
         </motion.section>
       </div>
+      <div>
+        <p className="text-center text-xs text-gray-500 mt-8">
+          &copy; {new Date().getFullYear()} Kuldip Sirpali. All rights reserved.
+        </p>
+      </div>
     </motion.main>
   );
 }
